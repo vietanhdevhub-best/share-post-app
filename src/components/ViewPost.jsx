@@ -60,12 +60,14 @@ function ViewPost(props) {
   const formatDate = `${
     date.getMonth() + 1
   }/${date.getDate()}/${date.getFullYear()}`;
+
   function isOwner() {
     if (appContext.loggedIn) {
       return appContext.user.username === post.author.username;
     }
     return false;
   }
+
   return (
     <Page title={`${post.title} || `}>
       <div className="d-flex justify-content-between">

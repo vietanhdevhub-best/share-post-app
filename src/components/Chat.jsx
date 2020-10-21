@@ -6,7 +6,7 @@ import { useImmer } from 'use-immer';
 import { Link } from 'react-router-dom';
 import io from 'socket.io-client';
 
-const socket = io('http://localhost:8080');
+const socket = io('https://back-end-sharepostapp.herokuapp.com');
 
 function Chat() {
   const chatField = useRef(null);
@@ -87,11 +87,7 @@ function Chat() {
                 <div className="chat-message">
                   <div className="chat-message-inner">{message.message}</div>
                 </div>
-                <img
-                  className="chat-avatar avatar-tiny"
-                  src={message.avatar}
-                  alt=""
-                />
+                <img className="chat-avatar avatar-tiny" src={message.avatar} alt="" />
               </div>
             );
           }
@@ -112,11 +108,7 @@ function Chat() {
           );
         })}
       </div>
-      <form
-        onSubmit={handleSubmit}
-        id="chatForm"
-        className="chat-form border-top"
-      >
+      <form onSubmit={handleSubmit} id="chatForm" className="chat-form border-top">
         <input
           onChange={handleChat}
           ref={chatField}

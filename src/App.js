@@ -27,7 +27,7 @@ import NotFound from './components/NotFound';
 import Search from './components/Search';
 import Chat from './components/Chat';
 
-Axios.defaults.baseURL = 'http://localhost:8080';
+Axios.defaults.baseURL = 'https://back-end-sharepostapp.herokuapp.com';
 
 function App() {
   const initialState = {
@@ -118,11 +118,7 @@ function App() {
           <Header />
 
           <Switch>
-            <Route
-              path="/"
-              exact
-              component={state.loggedIn ? Home : HomeGuest}
-            />
+            <Route path="/" exact component={state.loggedIn ? Home : HomeGuest} />
             <Route path="/profile/:username" component={Profile} />
             <Route path="/create-post" component={CreatePost} />
             <Route path="/post/:id" exact component={ViewPost} />
